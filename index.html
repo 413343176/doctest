@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>test6</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    {{reversedMessage}}
+    <input type="text" v-model="message" @blur="messageBlur" ref="messagexx">
+    <button type="button" @click="buttonClick">ç¡®å®š</button>
+
+  </div>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: "messagetest",
+        message1: "test"
+      },
+      computed: {
+        reversedMessage: function () {
+          return this.message.split("").reverse().join("")
+        }
+      },
+      methods: {
+        buttonClick() {
+          console.log("buttonClick")
+        },
+        messageBlur() {
+          console.log("messageBlur")
+          this.$refs.messagexx.focus();
+
+        }
+      },
+      mounted() {
+        // this.$refs.messagexx.focus();
+      }
+    })
+
+  </script>
+
+</body>
+
+
+</html>
